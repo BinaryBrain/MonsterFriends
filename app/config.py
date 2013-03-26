@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 *-*
 import os
 
-SQLALCHEMY_DATABASE_URI = 'postgresql://monsterfriends:monstermotdepasse@localhost:5432/monsterfriends'
+SQLALCHEMY_DATABASE_URI = os.getenv('MONSTERFRIENDS_DB')
 SQLALCHEMY_ECHO = True
 DEBUG = os.getenv('MONSTERFRIENDS_DEBUG', True)
 
