@@ -1,0 +1,54 @@
+{
+	"opponent":
+	{
+		"fbID": "1063020932",
+		"level": "32",
+		"maxHP": "255",
+		"currentHP: "232"
+	},
+	
+	"self":
+	{
+		"fbID": "1236701567",
+		"level": "34",
+		"maxHP": "255",
+		"currentHP: "126",
+		"xp": "2222"
+	},
+	
+	"abilities":
+	{
+		"1":
+		{
+			"name": "HackYoBrain",
+			"power": "42",
+			"type": "STEEL",
+			"maxPP": "10",
+			"currentPP": "8"
+		}
+		"2":
+		{
+			"name": "IgniteYoShirt",
+			"power": "24",
+			"type": "FIRE",
+			"maxPP": "15",
+			"currentPP": "15"
+		}
+		"3":
+		{
+			"name": "StealYoIdeas",
+			"power": "80",
+			"type": "PSYCHIC",
+			"maxPP": "5",
+			"currentPP": "0"
+		}
+		"4":
+		{
+			"name": "NomYoFood",
+			"power": "120",
+			"type": "NORMAL",
+			"maxPP": "5",
+			"currentPP": "5"
+		}
+	}
+}
