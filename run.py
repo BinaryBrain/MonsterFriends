@@ -10,7 +10,7 @@ import werkzeug.serving
 # necessary for autoreload (at least)
 monkey.patch_all()
 
-PORT = 5000
+PORT = 5001
 
 
 @werkzeug.serving.run_with_reloader
