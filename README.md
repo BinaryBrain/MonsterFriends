@@ -1,4 +1,4 @@
-MonsterFriends-new
-==================
+MonsterFriends
+==============
 
-Cleaner repo for MonsterFriends
+Clean repo for MonsterFriends
