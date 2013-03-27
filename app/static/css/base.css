@@ -1,3 +1,5 @@
+@import url("/static/css/menu.css");
+
 body {
 	font-family: merriweather, sans-serif;
 }
@@ -79,5 +81,3 @@ body {
 .number{
 	font-weight:bold;
 }
-
-@import "menu.css";

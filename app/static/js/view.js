@@ -17,27 +17,27 @@ function show(scene) {
 	switch(scene) {
 	
 		case Scene.MENU:
-			s += "menu/menu";
+			s += "menu";
 			break;
 		
 		case Scene.FIGHT:
-			s += "fight/fight";
+			s += "fight";
 			break;
 		
 		case Scene.ENEMYCHOICE: 
-			s += "enemyChoice/enemyChoice";
+			s += "enemyChoice";
 			break;
 		
 		case Scene.HISTORY: 
-			s += "history/history";
+			s += "history";
 			break;
 			
 		case Scene.TEAM:
-			s += "monsters/monsters";
+			s += "team";
 			break;
 		
 		case Scene.EVOLUTION:
-			s += "evolution/evolution";
+			s += "evolution";
 			break;
 		
 		default:
