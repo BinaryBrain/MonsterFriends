@@ -3,8 +3,8 @@ body {
 }
 
 @font-face {
- font-family:merriweather;
- src: url(../font/MerriweatherSans-Regular.ttf);
+	font-family:merriweather;
+	src: url(../font/MerriweatherSans-Regular.ttf);
 } 
 
 #container {

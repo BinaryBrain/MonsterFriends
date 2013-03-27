@@ -1,25 +1,19 @@
-
-// Different scenes
-Scene = {MENU : 0, FIGHT : 1, ENEMYCHOICE : 2, HISTORY : 3, MONSTERS : 4, EVOLUTION : 5}
-
-
 function changeFrame(data) {
 	if($("#screen").html() !== "") {
 		$("#screen > *").fadeOut(function () {
-		  $("#screen").html(data)
-		  $("#screen > *").css({ display: "none" })
-		  $("#screen > *").fadeIn()
-		})
+		  $("#screen").html(data);
+		  $("#screen > *").css({ display: "none" });
+		  $("#screen > *").fadeIn();
+		});
 	}
 
 	else
-		$("#screen").html(data)
-	
+		$("#screen").html(data);
 
 }
 
 function show(scene) {
-	var s = "E:/Github/MonsterFriends-new/app/templates/view/";
+	var s = "E:/Github/MonsterFriends-new/app/templates/view/"; // change later
 	switch(scene) {
 	
 		case Scene.MENU:
@@ -38,7 +32,7 @@ function show(scene) {
 			s += "history/history";
 			break;
 			
-		case Scene.MONSTERS:
+		case Scene.TEAM:
 			s += "monsters/monsters";
 			break;
 		

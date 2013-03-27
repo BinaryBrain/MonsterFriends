@@ -6,13 +6,13 @@
 
 // Controls things. Yeah.
 
+// Different scenes
+Scene = {MENU : 0, FIGHT : 1, ENEMYCHOICE : 2, HISTORY : 3, TEAM : 4, EVOLUTION : 5}
+
 $(function () {
 	Console.consoleNode = $("#console");
 	Controller.init()
 })
-
-// Different scenes
-Scene = {MENU : 0, FIGHT : 1, ENEMYCHOICE : 2, HISTORY : 3, MONSTERS : 4}
 
 /*
  * Controller Object
@@ -21,9 +21,6 @@ Scene = {MENU : 0, FIGHT : 1, ENEMYCHOICE : 2, HISTORY : 3, MONSTERS : 4}
  * 
  */
 Controller = {
-
-	// Starting scene
-	scene: Scene.MENU,
 	
 	error: function(err) {
 		Console.archieveMessage("Error: "+err);
@@ -32,12 +29,11 @@ Controller = {
 	},
 
 	init: function () {
-		/*C.init();
+		
 		Network.init(function () {
-			Controller.changeScene(Scene.MENU);
-		});*/
-		show(Scene.MENU);
-		console.log("production de fnu");
+			show(Scene.MENU);
+		});
+		
 	},
 	
 	sendChosenAttack: function(aid) {
