@@ -29,11 +29,14 @@ Controller = {
 	},
 
 	init: function () {
+		console.log("Controller init");
+		show(Scene.MENU);
+		console.log("Controller init : show(Scene.MENU).");
 		
-		Network.init(function () {
+		/*Network.init(function () {
 			show(Scene.MENU);
-		});
-		
+			console.log("Controller init : show(Scene.MENU).");
+		});*/	
 	},
 	
 	sendChosenAttack: function(aid) {

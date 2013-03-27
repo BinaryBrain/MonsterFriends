@@ -1,9 +1,9 @@
 function changeFrame(data) {
 	if($("#screen").html() !== "") {
 		$("#screen > *").fadeOut(function () {
-		  $("#screen").html(data);
-		  $("#screen > *").css({ display: "none" });
-		  $("#screen > *").fadeIn();
+			$("#screen").html(data);
+			$("#screen > *").css({ display: "none" });
+			$("#screen > *").fadeIn();
 		});
 	}
 
@@ -13,7 +13,7 @@ function changeFrame(data) {
 }
 
 function show(scene) {
-	var s = "E:/Github/MonsterFriends-new/app/templates/view/"; // change later
+	var s = "view/";
 	switch(scene) {
 	
 		case Scene.MENU:
@@ -47,7 +47,7 @@ function show(scene) {
 	}
 	
 	s += ".html";
-	console.log(s);
+	console.log("showing : " + s);
 	
 	$.get(s, function (data) {
 		changeFrame(data);
