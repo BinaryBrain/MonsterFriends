@@ -19,7 +19,7 @@ body {
 	background-color:#EEEEEE;
 }
 
-#canvas {
+#screen {
 	border: 1px solid black;
 }
 
@@ -79,3 +79,5 @@ body {
 .number{
 	font-weight:bold;
 }
+
+@import "menu.css";

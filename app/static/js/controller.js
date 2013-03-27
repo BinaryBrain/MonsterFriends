@@ -32,10 +32,12 @@ Controller = {
 	},
 
 	init: function () {
-		C.init();
+		/*C.init();
 		Network.init(function () {
 			Controller.changeScene(Scene.MENU);
-		});
+		});*/
+		show(Scene.MENU);
+		console.log("production de fnu");
 	},
 	
 	sendChosenAttack: function(aid) {
@@ -55,103 +57,6 @@ Controller = {
 				Controller.changeScene(Scene.FIGHT);
 			});
 	},
-	
-	changeScene: function(scene) {
-		Console.hide();
-		C.clear();
-		this.scene = scene;
-		
-		switch(scene)
-		{
-			case Scene.MENU:
-				Network.getCurrentFight(
-					function (data) {
-						// TODO : Recevoir l'oid
-						var result = data;
-						
-						C.drawMenu(result);
-					}
-				);
-			break;
-			
-			case Scene.FIGHT:
-				// Temporary part
-				Console.show()
-				Network.getFightInfos(
-					
-					function(data) {
-						// TODO : Recevoir plein de data, les traiter et le repasser pour draw des jolis trucs !
-						var result = data;
-						C.drawFight(result);
-						console.log(data);
-						//C.drawAttackDialog();
-					}
-					
-				);
-			break;
-			
-			case Scene.ENEMYCHOICE:
-				Facebook.getFriends(
-					function (data) {
-						var ids=[];
-						var names=[];
-						
-						for(var i=0, len=data.length; i<len; i++) {
-							ids[i] = data[i].id;
-							names[i] = data[i].name;
-						}
-						
-						// TODO : Give arguments to drawEnemyChoice
-						data= [{
-							id: 1553324411,
-							name: "Basile Vu"
-						},
-						{
-							id: 1063020932,
-							name: "Sacha Bron"
-						},
-						{
-							id: 1236701567,
-							name: "Kewin Dousse"
-						},
-						{
-							id: 517796283,
-							name: "Jocelyn"
-						}];
-						
-						console.log(data)
-						
-						C.drawEnemyChoice(data);
-					}
-				);
-				//drawEnemyChoice();
-			break;
-			
-			case Scene.HISTORY:
-				Network.getMatchHistory(
-					function (data) {
-						// TODO : Give arguments to drawHistory
-						var result = data;
-						C.drawHistory(result);
-					}
-				);
-			break;
-			
-			case Scene.MONSTERS:
-				Network.getMyMonsters(
-					function (data) {
-						// TODO : Give arguments to drawMonsters
-						var result  = data;
-						console.log(result);
-						C.drawMonsters(JSON.parse(result));
-					}
-				);
-				//drawMonsters();
-			break;
-		}
-	}
-	
-	
 	
 }
 
