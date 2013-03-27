@@ -22,6 +22,10 @@ db.init_app(app)
 def hello_world():
     return render_template('base.html')
 
+@app.route('/view/<path:path>')
+def show_view(path):
+    return render_template('view/'+path)
+
 @app.route('/socket.io/<path:path>')
 def run_socketio(path):
     from battle import BattleNamespace
