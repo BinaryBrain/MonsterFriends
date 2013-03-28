@@ -1,17 +1,25 @@
 var width = $('#screen').width();
 var height = $('#screen').height();
 
-var iheight = 50;
-var iwidth = 50;
-var horSpace = (width - iwidth*5)/6;
-var verSpace = (height - iheight*5)/6;
+var iHeight = 100;
+var iWidth = 100;
+var horSpace = (width - iWidth*5)/6;
+var verSpace = (height - iHeight*5)/6;
 
-var trainers = [1553324411,1236701567,1063020932,1024114809];  // change;
+var trainers = [1553324411,1236701567,1063020932,1168461370,517796283];  // change;
 
 
 for (var i = 0; i<trainers.length; i++) { // and here too : all the "trainers[i]" in "trainers[i].id".
-	var s = '<img data-id="'+ trainers[i] +'" id ="'+trainers[i]+'" class="imgEnemies" src = "http://graph.facebook.com/' + trainers[i] + '/picture" style="position: absolute; left: ' + Math.floor((horSpace + iwidth)*(i%5) + horSpace) + 'px"; top: "' + Math.floor((verSpace + iheight)*(Math.floor(i/5)) + verSpace) +'px">'
-	$('#peopleGrid').append(s);
+	$('#peopleGrid').append($('<img>')
+		.attr ({
+			'data-id' : trainers[i],
+			'id' : trainers[i],
+			'class' : 'imgEnemies',
+			'src' : 'http://graph.facebook.com/' + trainers[i] + '/picture?width='+iWidth+'&height='+iHeight,
+			'style' : 'position: absolute; left: ' + Math.floor((horSpace + iWidth)*(i%5) + horSpace) + 'px; top: ' + Math.floor((verSpace + iHeight)*(Math.floor(i/5)) + verSpace) +'px>',
+			'title' : trainers[i],
+		})
+	);
 }
 
 $(".imgEnemies").on("click", function(event){
