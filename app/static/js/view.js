@@ -1,9 +1,9 @@
 function changeFrame(data) {
 	if($("#screen").html() !== "") {
-		$("#screen > *").fadeOut(function () {
+		$("#screen > .scene").fadeOut(function () {
 			$("#screen").html(data);
-			$("#screen > *").css({ display: "none" });
-			$("#screen > *").fadeIn();
+			$("#screen > .scene").css({ display: "none" });
+			$("#screen > .scene").fadeIn();
 		});
 	}
 
