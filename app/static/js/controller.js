@@ -30,7 +30,7 @@ Controller = {
 
 	init: function () {
 		console.log("Controller init");
-		show(Scene.MENU);
+		View.show(Scene.MENU);
 		console.log("Controller init : show(Scene.MENU).");
 		
 		/*Network.init(function () {

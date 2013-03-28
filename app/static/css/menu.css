@@ -1,37 +1,7 @@
 .menuButtons {
-	-moz-box-shadow: inset 0px 0px 0px 0px #ffffff;
-	-webkit-box-shadow: inset 0px 0px 0px 0px #ffffff;
-	box-shadow: inset 0px 0px 0px 0px #ffffff;
-	
-	-moz-border-radius: 6px;
-	-webkit-border-radius: 6px;
-	border-radius: 6px;
-	
-	border: 1px solid #c2c2c2;
-	
-	background-color: #e0e0e0;
-	color: #5c5c5c;
-	
-	font-family: arial;
-	font-size: 20px;
-	
-	font-weight: bold;
-	
-	text-decoration: none;
-	text-shadow: 1px 1px 0px #ffffff;
-	
 	width: 100%;
 	margin-bottom: 20px;
 	padding: 7px 76px;
-}
-
-.menuButtons:hover {
-	background-color: #d4d4d4;
-}
-
-.menuButtons:active {
-	position: relative;
-	top:1px;
 }
 
 #menuButtonsContainer {

@@ -1,4 +1,6 @@
-function changeFrame(data) {
+View = {
+	
+changeFrame : function(data) {
 	if($("#screen").html() !== "") {
 		$("#screen > .scene").fadeOut(function () {
 			$("#screen").html(data);
@@ -10,9 +12,9 @@ function changeFrame(data) {
 	else
 		$("#screen").html(data);
 
-}
+},
 
-function show(scene) {
+show : function(scene) {
 	var s = "view/";
 	switch(scene) {
 	
@@ -50,6 +52,8 @@ function show(scene) {
 	console.log("showing : " + s);
 	
 	$.get(s, function (data) {
-		changeFrame(data);
+		View.changeFrame(data);
 	})
+},
+
 }

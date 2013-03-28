@@ -24,5 +24,10 @@ for (var i = 0; i<trainers.length; i++) { // and here too : all the "trainers[i]
 
 $(".imgEnemies").on("click", function(event){
 	console.log("id: " + this.id);
-	// Controller.sendChosenFriend(this.id);
+	Controller.sendChosenFriend(this.id);
+	View.show(Scene.FIGHT);
 });
+
+$("#previousButton").on('click', function () {
+	View.show(Scene.MENU)
+})

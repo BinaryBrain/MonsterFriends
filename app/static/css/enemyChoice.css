@@ -6,7 +6,7 @@
 #peopleGrid {
 	width: 800px;
 	position: absolute; 
-	top: 180px;
+	top: 100px;
 	bottom : -53px; 
 	marginLeft: -400px;
 	overflow-y : auto;
