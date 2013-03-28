@@ -1,7 +1,7 @@
 $(".menuButtons").on("click", function(event){
 	switch(this.id){
 		case "buttonFight":
-			show(Scene.FIGHT);
+			show(Scene.ENEMYCHOICE);
 			break;
 			
 		case "buttonTeam":

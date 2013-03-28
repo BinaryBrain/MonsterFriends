@@ -1,0 +1,13 @@
+#textEnemyChoice{
+	padding-top: 30px;
+	text-align: center;
+}
+
+#peopleGrid {
+	width: 800px;
+	position: absolute; 
+	top: 180px;
+	bottom : -53px; 
+	marginLeft: -400px;
+	overflow-y : auto;
+}

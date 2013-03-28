@@ -7,10 +7,10 @@
 	-webkit-border-radius: 6px;
 	border-radius: 6px;
 	
-	border: 1px solid #dcdcdc;
+	border: 1px solid #c2c2c2;
 	
-	background-color: #ededed;
-	color: #777777;
+	background-color: #e0e0e0;
+	color: #5c5c5c;
 	
 	font-family: arial;
 	font-size: 20px;
@@ -26,7 +26,7 @@
 }
 
 .menuButtons:hover {
-	background-color: #dfdfdf;
+	background-color: #d4d4d4;
 }
 
 .menuButtons:active {

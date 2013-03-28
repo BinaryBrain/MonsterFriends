@@ -36,7 +36,7 @@ Controller = {
 		/*Network.init(function () {
 			show(Scene.MENU);
 			console.log("Controller init : show(Scene.MENU).");
-		});*/	
+		});*/
 	},
 	
 	sendChosenAttack: function(aid) {
