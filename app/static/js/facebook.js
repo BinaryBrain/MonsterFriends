@@ -1,6 +1,7 @@
 //
 // To get every friends: Facebook.friends
 // To get friends who installed the app: Facebook.installedFriends
+// To get friend's infos by his ID: Facebook.indexedFriends[id]
 // Attributes:
 //   .id
 //   .name
@@ -10,6 +11,7 @@ Facebook = {
   userID: 0,
   myname: 0,
   friends: [],
+  indexedFriends: [],
   installedFriends: [],
   
   onInit: function () {},
@@ -27,6 +29,7 @@ Facebook = {
       
       var friends = response.data
       var installedFriends = []
+      var indexedFriends = []
       
       Facebook.friends = friends;
       
@@ -34,9 +37,12 @@ Facebook = {
 	if(friends[i].installed) {
 	  installedFriends.push(friends[i])
 	}
+	
+	indexedFriends[friends[i].id] = friends[i]
       }
       
       Facebook.installedFriends = installedFriends;
+      Facebook.indexedFriends = indexedFriends;
       
       Facebook.onInit()
     })
