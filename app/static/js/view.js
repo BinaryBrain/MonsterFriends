@@ -17,7 +17,7 @@ changeFrame : function(data) {
 show : function(scene) {
 	var s = "view/";
 	switch(scene) {
-	
+		
 		case Scene.WELCOME:
 			s += "welcome";
 			break;
