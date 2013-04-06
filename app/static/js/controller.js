@@ -30,8 +30,11 @@ Controller = {
 
 	init: function () {
 		console.log("Controller init");
-		View.show(Scene.MENU);
-		console.log("Controller init : show(Scene.MENU).");
+		
+		Facebook.init(function () {
+			View.show(Scene.MENU);
+			console.log("Controller init : show(Scene.MENU).");
+		})
 		
 		/*Network.init(function () {
 			show(Scene.MENU);
