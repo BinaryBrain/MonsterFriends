@@ -22,7 +22,7 @@ $(function () {
  */
 Controller = {
 	
-	error: function(err) {
+	error: function (err) {
 		Console.archieveMessage("Error: "+err);
 		console.log("Error: "+err);
 		Console.show();
@@ -43,7 +43,7 @@ Controller = {
 		});*/
 	},
 	
-	sendChosenAttack: function(aid) {
+	sendChosenAttack: function (aid) {
 		Network.setChosenAttack(aid, 
 			function (data) {
 				// TODO : Confirmer la réception de la réponse
@@ -52,7 +52,7 @@ Controller = {
 			});
 	},
 	
-	sendChosenFriend: function(fid) {
+	sendChosenFriend: function (fid) {
 		Network.askFight(fid, 
 			function (data) {
 				// TODO : Confirmer la réception de la réponse

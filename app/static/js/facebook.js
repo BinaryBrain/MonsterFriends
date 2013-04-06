@@ -1,3 +1,11 @@
+//
+// To get every friends: Facebook.friends
+// To get friends who installed the app: Facebook.installedFriends
+// Attributes:
+//   .id
+//   .name
+//
+
 Facebook = {
   userID: 0,
   myname: 0,
@@ -15,7 +23,7 @@ Facebook = {
   },
   
   fetchFriends: function () {
-    FB.api('/me/friends?fields=installed,name,devices', function (response) {
+    FB.api('/me/friends?fields=installed,name', function (response) {
       
       var friends = response.data
       var installedFriends = []

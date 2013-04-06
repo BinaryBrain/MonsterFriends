@@ -6,18 +6,18 @@ var iWidth = 100;
 var horSpace = (width - iWidth*5)/6;
 var verSpace = (height - iHeight*5)/6;
 
-var trainers = [1553324411,1236701567,1063020932,1168461370,517796283];  // change;
+var trainers = Facebook.installedFriends;
 
 
-for (var i = 0; i<trainers.length; i++) { // and here too : all the "trainers[i]" in "trainers[i].id".
+for (var i = 0; i<trainers.length; i++) {
 	$('#peopleGrid').append($('<img>')
 		.attr ({
-			'data-id' : trainers[i],
-			'id' : trainers[i],
+			'data-id' : trainers[i].id,
+			'id' : trainers[i].id,
 			'class' : 'imgEnemies',
-			'src' : 'http://graph.facebook.com/' + trainers[i] + '/picture?width='+iWidth+'&height='+iHeight,
+			'src' : 'http://graph.facebook.com/' + trainers[i].id + '/picture?width='+iWidth+'&height='+iHeight,
 			'style' : 'position: absolute; left: ' + Math.floor((horSpace + iWidth)*(i%5) + horSpace) + 'px; top: ' + Math.floor((verSpace + iHeight)*(Math.floor(i/5)) + verSpace) +'px>',
-			'title' : trainers[i],
+			'title' : trainers[i].name,
 		})
 	);
 }
