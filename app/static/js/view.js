@@ -18,6 +18,10 @@ show : function(scene) {
 	var s = "view/";
 	switch(scene) {
 	
+		case Scene.WELCOME:
+			s += "welcome";
+			break;
+		
 		case Scene.MENU:
 			s += "menu";
 			break;

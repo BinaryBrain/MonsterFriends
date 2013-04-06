@@ -7,7 +7,7 @@
 // Controls things. Yeah.
 
 // Different scenes
-Scene = {MENU : 0, FIGHT : 1, ENEMYCHOICE : 2, HISTORY : 3, TEAM : 4, EVOLUTION : 5}
+Scene = {MENU : 0, FIGHT : 1, ENEMYCHOICE : 2, HISTORY : 3, TEAM : 4, EVOLUTION : 5, WELCOME : 6}
 
 $(function () {
 	Console.consoleNode = $("#console");
@@ -30,6 +30,7 @@ Controller = {
 
 	init: function () {
 		console.log("Controller init");
+			View.show(Scene.WELCOME);
 		
 		Facebook.init(function () {
 			View.show(Scene.MENU);
