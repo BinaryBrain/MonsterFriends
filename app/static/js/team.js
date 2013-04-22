@@ -2,6 +2,6 @@ $("#previousButton").on('click', function () {
 	View.show(Scene.MENU)
 })
 
-myMonsters = Network.getMyMonsters()
-
-console.log(myMonsters)
+Network.getMyMonsters(function (myMonsters) {
+	console.log("my Monsters: ", myMonsters);
+})
