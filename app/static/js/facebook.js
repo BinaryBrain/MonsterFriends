@@ -1,7 +1,14 @@
 //
 // To get every friends: Facebook.friends
 // To get friends who installed the app: Facebook.installedFriends
-// To get friend's infos by his ID: Facebook.indexedFriends[id]
+// To get friend's infos by his ID:
+// 	try {
+// 	  Facebook.getFriendFromID(id)
+// 	}
+// 	catch (e) {
+// 	  // TODO: Handle error when the monster is not a friend of you
+// 	}
+//
 // Attributes:
 //   .id
 //   .name
@@ -46,6 +53,15 @@ Facebook = {
       
       Facebook.onInit()
     })
+  },
+  
+  getFriendFromID: function (id) {
+    if((friend = Facebook.indexedFriends[id]) !== undefined) {
+      return friend
+    }
+    else {
+      throw "ERROR: Not a friend of you! (id: "+id+")"
+    }
   },
 }
 
