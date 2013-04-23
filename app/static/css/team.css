@@ -1,4 +1,60 @@
-#welcome {
+#team h2 {
   text-align: center;
-  padding: 20px 30px;
+  height: 30px;
+  padding: 25px 0;
+  margin: 0;
+}
+
+#team #monsters {
+  
+}
+
+#team .monster {
+  padding: 15px;
+  height: 56px;
+  border-top: 1px solid black;
+}
+
+#team .monster:last-child {
+  border-bottom: 1px solid black;
+}
+
+#team .data {
+  padding-left: 70px;
+}
+
+#team .lifebar {
+  position: relative;
+  
+  height: 20px;
+  width: 300px;
+  
+  border: 1px solid black;
+  border-radius: 3px;
+  
+  overflow: hidden;
+}
+
+#team .lifebar .hp {
+  position: absolute;
+  
+  width: 100%;
+  
+  text-align: center;
+}
+
+#team .lifebar .life {
+  height: 100%;
+}
+
+#team h4 {
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+#team .monster img {
+  float: left;
+  
+  width: 54px;
+  height: 54px;
 }
