@@ -73,14 +73,13 @@ function login() {
       } else {
 	  // cancelled
 	  console.log("Connection cancelled")
-	  //C.drawConnectionRequired()
+	  alert("Connection cancelled")
       }
   })
 }
 
 function go() {
   FB.api('/me', function(response) {
-      console.log(response)
       Facebook.userID = response.id
       Facebook.myname = response.first_name
       
@@ -110,7 +109,6 @@ $(function () {
     });
     
     FB.getLoginStatus(function(response) {
-      console.log(response.status)
       if (response.status === 'connected') {
 	// connected
 	go()
