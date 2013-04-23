@@ -2,11 +2,11 @@ View = {
 	
 changeFrame : function(data) {
 	if($("#screen").html() !== "") {
-		$("#screen > .scene").fadeOut(function () {
+		//$("#screen > .scene").fadeOut(function () {
 			$("#screen").html(data);
-			$("#screen > .scene").css({ display: "none" });
-			$("#screen > .scene").fadeIn();
-		});
+			//$("#screen > .scene").css({ display: "none" });
+			//$("#screen > .scene").fadeIn();
+		//});
 	}
 
 	else
