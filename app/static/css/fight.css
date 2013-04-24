@@ -1,1 +1,65 @@
+#vs {
+  border-bottom: 1px solid black;
+}
 
+#vs {
+
+}
+
+#vs h2 {
+  text-align: center;
+  height: 30px;
+  padding-left: 25px;
+  padding-right: 25px;
+  margin: 0;
+}
+
+#battle {
+  
+}
+
+#battle .monsterContainer {
+  padding: 50px;
+}
+
+#battle .monster img {
+  
+  width: 100px;
+  height: 100px;
+}
+
+#battle .data {
+  width: 300px;
+  height: 100 px;
+  padding: 15px;
+  border: 1px solid black;
+}
+
+#battle .lifebar {
+  position: relative;
+  
+  height: 20px;
+  width: 300px;
+  
+  border: 1px solid black;
+  border-radius: 3px;
+  
+  overflow: hidden;
+}
+
+#battle .lifebar .hp {
+  position: absolute;
+  
+  width: 100%;
+  
+  text-align: center;
+}
+
+#battle .lifebar .life {
+  height: 100%;
+}
+
+#battle h4 {
+  margin: 0;
+  margin-bottom: 5px;
+}

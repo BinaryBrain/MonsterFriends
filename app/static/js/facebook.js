@@ -56,7 +56,7 @@ Facebook = {
       Facebook.onInit()
     })
   },
-  
+
   getFriendFromID: function (id) {
     if((friend = Facebook.indexedFriends[id]) !== undefined) {
       return friend
@@ -65,6 +65,10 @@ Facebook = {
       throw "ERROR: Not a friend of you! (id: "+id+")"
     }
   },
+  
+  getNameFromID: function (id) {
+	return "poney" // TODO
+  }
 }
 
 function login() {
