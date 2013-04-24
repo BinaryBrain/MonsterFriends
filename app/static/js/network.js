@@ -2,11 +2,25 @@ var socket = io.connect();
 
 Network = {
   init: function (cb) {
-    Network.initCB = cb
-    socket.on('connect', function (data) {
-      Network.myid = socket.socket.sessionid;
+    console.log("[INFO] Network initialization");
+    
+    Network.myid = socket.socket.sessionid;
+    
+    socket.emit('hello', Facebook.userID);
+    
+    socket.on('welcome', function () {
+      socket.on('new_fight', function (oid) {
+        Controller.newFight(oid);
+      })
+      
+      console.log("[INFO] Network initialized"); 
+      cb()
+    })
+    
+    socket.on('error', function (err) {
+      Controller.error(err);
     });
-
+    
     socket.on('disconnect', function () {
       // TODO
     });   
@@ -15,7 +29,6 @@ Network = {
   getCurrentFight: function (cb) {
     socket.emit('get_current_fight');
     socket.on('current_fight', function (data) {
-      console.log(data)
       cb(data);
     });
   },
@@ -57,19 +70,5 @@ Network = {
   
   attack: function (aid) {
     socket.emit('attack', aid );
-  },
-
-  facebookReady: function (fbid) {
-    socket.emit('hello', Facebook.userID);
-
-    socket.on('error', function (err) { Controller.error(err); })
-
-    socket.on('welcome', function () {
-      Network.initCB()
-      
-      socket.on('new_fight', function (oid) {
-        Controller.newFight(oid);
-      })
-    })
   },
 }

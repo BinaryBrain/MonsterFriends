@@ -27,6 +27,7 @@ Facebook = {
   },
   
   init: function (cb) {
+    console.log("[INFO] Facebook initialization");
     if(cb)
       Facebook.onInit = cb
   },
@@ -51,6 +52,7 @@ Facebook = {
       Facebook.installedFriends = installedFriends;
       Facebook.indexedFriends = indexedFriends;
       
+      console.log("[INFO] Facebook initialized");
       Facebook.onInit()
     })
   },
@@ -86,7 +88,6 @@ function go() {
       $("#facebookconnect").html("Hi, "+Facebook.myname)
       
       Facebook.onReady()
-      Network.facebookReady(Facebook.userID)
   })
 }
 

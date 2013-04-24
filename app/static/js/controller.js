@@ -29,18 +29,15 @@ Controller = {
 	},
 
 	init: function () {
-		console.log("Controller init");
-			View.show(Scene.WELCOME);
+		console.log("[INFO] Initialization");
+		View.show(Scene.WELCOME);
 		
 		Facebook.init(function () {
-			View.show(Scene.MENU);
-			console.log("Controller init : show(Scene.MENU).");
+			Network.init(function () {
+				View.show(Scene.MENU);
+				console.log("[INFO] Initialized");
+			})
 		})
-		
-		/*Network.init(function () {
-			show(Scene.MENU);
-			console.log("Controller init : show(Scene.MENU).");
-		});*/
 	},
 	
 	sendChosenAttack: function (aid) {
