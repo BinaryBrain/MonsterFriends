@@ -4,22 +4,24 @@ $("#previousButton").on('click', function () {
 
 $(function () {
 	// FIXME: DEMO: Uncomment when the server is fixed.
-	//Network.getMyMonsters(function (myMonsters) {
-	//	console.log("my Monsters: ", myMonsters);
-		myMonster = [
-			{ id: 598584646, maxHp: 200, hp: 130, level: 4 },
-			{ id: 1024114809, maxHp: 60, hp: 25, level: 1 },
-			{ id: 100001603331978, maxHp: 1000, hp: 1000, level: 93 },
-			{ id: 626530322, maxHp: 420, hp: 0, level: 11 },
-			{ id: 1236701567, maxHp: 260, hp: 30, level: 6 },
-			{ id: 1168461370, maxHp: 510, hp: 510, level: 14 },
-		]
+	Network.getMyMonsters(function (myMonsters) {
+		myMonsters = jQuery.parseJSON(myMonsters)
+		
+		// Example
+		/* myMonsters = [
+			{ fb_id: 598584646, pv_max: 200, pv: 130, level: 4 },
+			{ fb_id: 1024114809, pv_max: 60, pv: 25, level: 1 },
+			{ fb_id: 100001603331978, pv_max: 1000, pv: 1000, level: 93 },
+			{ fb_id: 626530322, pv_max: 420, pv: 0, level: 11 },
+			{ fb_id: 1236701567, pv_max: 260, pv: 30, level: 6 },
+			{ fb_id: 1168461370, pv_max: 510, pv: 510, level: 14 },
+		] */
 		
 		var html = ""
 		
-		for(var i=0, l=myMonster.length; i<l; i++) {
+		for(var i=0, l=myMonsters.length; i<l; i++) {
 			try {
-				var percent = Math.round(myMonster[i].hp*100/myMonster[i].maxHp)
+				var percent = Math.round(myMonsters[i].pv*100/myMonsters[i].pv_max)
 				
 				var color = 'rgb(148,240,59)' // green
 				
@@ -30,14 +32,14 @@ $(function () {
 					color = 'rgb(255,200,59)' // yellow
 				}
 				
-				var name = Facebook.getFriendFromID(myMonster[i].id).name
+				var name = Facebook.getFriendFromID(myMonsters[i].fb_id).name
 			
 				html += '<div class="monster">'
-					html += '<img src="http://graph.facebook.com/'+myMonster[i].id+'/picture?width=54&height=54">'
+					html += '<img src="http://graph.facebook.com/'+myMonsters[i].fb_id+'/picture?width=54&height=54">'
 					html += '<div class="data">'
-						html += '<h4>'+name+' - lvl '+myMonster[i].level+'</h4>'
+						html += '<h4>'+name+' - lvl '+myMonsters[i].level+'</h4>'
 						html += '<div class="lifebar">'
-							html += '<div class="hp">'+myMonster[i].hp+'/'+myMonster[i].maxHp+'</div>'
+							html += '<div class="hp">'+myMonsters[i].pv+'/'+myMonsters[i].pv_max+'</div>'
 							html += '<div class="life" style="width: '+percent+'%; background-color: '+color+';"></div>'
 						html += '</div>'
 					html += '</div>'
@@ -51,5 +53,5 @@ $(function () {
 		
 		$("#team #monsters").html(html)
 		
-	//})
+	})
 })
