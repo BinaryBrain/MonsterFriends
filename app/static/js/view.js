@@ -53,7 +53,6 @@ show : function(scene) {
 	}
 	
 	s += ".html";
-	console.log("showing : " + s);
 	
 	$.get(s, function (data) {
 		View.changeFrame(data);
