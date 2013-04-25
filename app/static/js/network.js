@@ -60,15 +60,12 @@ Network = {
       cb();
     });
   },
-	
-	setChosenAttack: function (aid, cb) {
-    socket.emit('attack', aid);
-    socket.on('fight_info', function (data) {
-      cb(data);
-    });
-  },
   
-  attack: function (aid) {
+  attack: function (aid, cb) {
     socket.emit('attack', aid );
+    socket.on('fight_info', function (data) {
+      if(cb)
+        cb(data);
+    });
   },
 }
