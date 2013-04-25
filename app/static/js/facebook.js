@@ -9,6 +9,8 @@
 // 	  // TODO: Handle error when the monster is not a friend of you
 // 	}
 //
+// To get someone's name by ID: getNameFromID(id, callback)
+//
 // Attributes:
 //   .id
 //   .name
@@ -20,6 +22,7 @@ Facebook = {
   friends: [],
   indexedFriends: [],
   installedFriends: [],
+  namesFromID: [],
   
   onInit: function () {},
   onReady: function () {
@@ -36,8 +39,10 @@ Facebook = {
     FB.api('/me/friends?fields=installed,name', function (response) {
       
       var friends = response.data
+      
       var installedFriends = []
       var indexedFriends = []
+      var names = []
       
       Facebook.friends = friends;
       
@@ -47,10 +52,12 @@ Facebook = {
 	}
 	
 	indexedFriends[friends[i].id] = friends[i]
+	names[friends[i].id] = friends[i].name
       }
       
       Facebook.installedFriends = installedFriends;
       Facebook.indexedFriends = indexedFriends;
+      Facebook.namesFromID = names;
       
       console.log("[INFO] Facebook initialized");
       Facebook.onInit()
@@ -66,43 +73,52 @@ Facebook = {
     }
   },
   
-  getNameFromID: function (id) {
-	return "poney" // TODO
+  getNameFromID: function (id, cb) {
+    if((name = Facebook.namesFromID[id].name) !== undefined) {
+      cb(name); 
+    }
+    else {
+      FB.api('http://graph.facebook.com/'+id+'/?fields=name', function (res) {
+	var name = res.name;
+	Facebook.namesFromID[id] = name;
+	cb(name);
+      })
+    }
   }
 }
 
 function login() {
   FB.login(function(response) {
-      if (response.authResponse) {
-	  // connected
-	  go()
-      } else {
-	  // cancelled
-	  console.log("Connection cancelled")
-	  alert("Connection cancelled")
-      }
+    if (response.authResponse) {
+      // connected
+      go()
+    } else {
+      // cancelled
+      console.log("Connection cancelled")
+      alert("Connection cancelled")
+    }
   })
 }
 
 function go() {
   FB.api('/me', function(response) {
-      Facebook.userID = response.id
-      Facebook.myname = response.first_name
-      
-      $("#facebookconnect").html("Hi, "+Facebook.myname)
-      
-      Facebook.onReady()
+    Facebook.userID = response.id
+    Facebook.myname = response.first_name
+    
+    $("#facebookconnect").html("Hi, "+Facebook.myname)
+    
+    Facebook.onReady()
   })
 }
 
 $(function () {
   // Load the FB SDK Asynchronously
   (function(d){
-     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement('script'); js.id = id; js.async = true;
-     js.src = "//connect.facebook.net/en_US/all.js";
-     ref.parentNode.insertBefore(js, ref);
+    var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement('script'); js.id = id; js.async = true;
+    js.src = "//connect.facebook.net/en_US/all.js";
+    ref.parentNode.insertBefore(js, ref);
   } (document));
   
   window.fbAsyncInit = function() {
