@@ -105,8 +105,32 @@
 
 }
 
+#battle #monsterContainer0 .dataContainer .arrow {
+  display: inline-block;
+  border-right: 55px solid rgba(0,0,0,0);
+  border-bottom: 16px solid #334;
+  width: 0;
+  margin-top: 63px;
+  height: 0;
+  margin-left: -1px;
+}
+
 #battle #monsterContainer1 .dataContainer {
   float: right;
+}
+
+#battle #monsterContainer0 .dataContainer .arrow {
+  display: inline-block;
+  border-left: 55px solid rgba(0,0,0,0);
+  border-bottom: 16px solid #334;
+  width: 0;
+  margin-top: 63px;
+  height: 0;
+  margin-left: -1px;
+}
+
+#battle #monsterContainer0 .data {
+  float: left;
 }
 
 #battle #monsterContainer1 .data {
