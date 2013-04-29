@@ -1,37 +1,125 @@
 #vs {
+  position: relative;
+
+  height: 70px;
+  
   border-bottom: 1px solid black;
 }
 
-#vs {
+#vs > * {
+  position: absolute;
+  
+  top: 0;
+  bottom: 0;
+}
 
+#vs .trainer {
+  width: 375px;
+}
+
+#vs #trainer0 {
+  right: 425px;
+}
+
+#vs #trainer1 {
+  left: 425px;
+}
+
+#vs img {
+  position: relative;
+  
+  width: 40px;
+  height: 40px;
+  
+  margin: 15px 10px;
+}
+
+#vs #trainer0 img { 
+  float: right;
+}
+
+#vs #trainer1 img {
+  float: left;
+}
+
+#vs p {
+  margin-top: 25px;
+}
+
+#vs #trainer0 p {
+  text-align: right;
+}
+
+#vs #trainer1 p {
+  text-align: left;
 }
 
 #vs h2 {
   text-align: center;
-  height: 30px;
-  padding-left: 25px;
-  padding-right: 25px;
-  margin: 0;
+  
+  left: 0;
+  right: 0;
 }
 
 #battle {
-  
+  position: relative;
+
+  height: 530px;
 }
 
 #battle .monsterContainer {
-  padding: 50px;
+  width: 740px;
+  height: 129px;
+  
+  padding: 30px;
+  
+  position: relative;
+}
+
+#battle #monsterContainer0 {
+
+}
+
+#battle #monsterContainer1 {
+
 }
 
 #battle .monster img {
-  
-  width: 100px;
-  height: 100px;
+  width: 129px;
+  height: 129px;
+}
+
+#battle #monsterContainer0 .monster {
+  float: right;
+}
+
+#battle #monsterContainer1 .monster {
+  float: left;
+}
+
+#battle .dataContainer {
+  width: 600px;
+}
+
+#battle #monsterContainer0 .dataContainer {
+
+}
+
+#battle #monsterContainer1 .dataContainer {
+  float: right;
+}
+
+#battle #monsterContainer1 .data {
+  float: right;
 }
 
 #battle .data {
   width: 300px;
   height: 100 px;
+  
   padding: 15px;
+  
+  border-radius: 3px;
   border: 1px solid black;
 }
 
