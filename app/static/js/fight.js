@@ -5,59 +5,76 @@ $(function () {
     { fb_id: 1236701567, name: "Kewin Dousse" }
   ] 
   var monsters = [
-    { fb_id: 1063020932, pv_max: 200, pv: 130, level: 4, name: "Sacha Bron"},
-    { fb_id: 1236701567, pv_max: 60, pv: 25, level: 1, name: "Kewin Dousse"}
+    { fb_id: 1063020932, pv_max: 200, pv: 130, level: 4},
+    { fb_id: 1236701567, pv_max: 60, pv: 25, level: 1}
   ]
 
-  $('#vs').html(getVsHtml(trainers))
-  $('#battle').html(getBattleHtml(monsters))
+  getVsHtml(trainers, function (html) {
+    $('#vs').html(html)
+  })
+  getBattleHtml(monsters, function (html) {
+    $('#battle').html(html)
+  })
   
   Dialog.show()
 })	
-	
-function getVsHtml(trainers) {
+
+function getVsHtml(trainers, cb) {
   var html = ""
-    html += getTrainersHtml(trainers,0)
+  getTrainersHtml(trainers,0, function (html0) {
+    html += html0
     html += "<h2>VS</h2>"
-    html += getTrainersHtml(trainers,1)
-
-  return html;
+    getTrainersHtml(trainers, 1, function (html1) {
+	html+= html1
+	cb(html)
+    })
+  })
 }
 
-function getTrainersHtml(trainers,i){
-  var html = ""
-  html += "<div id='trainer"+i+"' class='trainer'>"
-    html += '<img src="http://graph.facebook.com/'+trainers[i].fb_id+'/picture?width=40&height=40">'
-    html += "<p>"+trainers[i].name+"</p>"
-  html += "</div>"
-  
-  return html
+function getTrainersHtml(trainers, i, cb) {
+  Facebook.getNameFromID(trainers[i].fb_id, function (name) {
+    var html = ""
+    html += "<div id='trainer"+i+"' class='trainer'>"
+      html += '<img src="http://graph.facebook.com/'+trainers[i].fb_id+'/picture?width=40&height=40">'
+      html += "<p>"+name+"</p>"
+    html += "</div>"
+    cb(html)
+  })
 }
 
-function getBattleHtml(monsters) {
+function getBattleHtml(monsters, cb) {
   var html = ""
-  for(var i = 0; i<monsters.length; i++) {
-    html+="<div id='monsterContainer"+i+"' class='monsterContainer'>"
+  getStatusHtml(monsters[0], function (html0) {
+    html+="<div id='monsterContainer"+0+"' class='monsterContainer'>"
       html+="<div class='monster'>"
-	html+= '<img src="http://graph.facebook.com/'+monsters[i].fb_id+'/picture?width=129&height=129">'
+	html+= '<img src="http://graph.facebook.com/'+monsters[0].fb_id+'/picture?width=129&height=129">'
       html+="</div>"
-      html+= getStatusHtml(monsters[i])
+      html += html0
     html+="</div>"
-  }
-  return html
+    
+    getStatusHtml(monsters[1], function (html1) {
+      html+="<div id='monsterContainer"+1+"' class='monsterContainer'>"
+	html+="<div class='monster'>"
+	  html+= '<img src="http://graph.facebook.com/'+monsters[1].fb_id+'/picture?width=129&height=129">'
+	html+="</div>"
+	html += html1
+      html+="</div>"
+      cb(html)
+    })
+  })
 }
 	
-function getStatusHtml(monster) {
-  var html = ""
-  var name = monster.name //Facebook.getFriendFromID(monster.fb_id).name 
-  html+= "<div class='dataContainer'>"
-    html += "<div class='data'>"
-      html += "<h4>"+name+" - lvl "+monster.level+"</h4>"
-      html += getLifeBarHtml(monster)
+function getStatusHtml(monster, cb) {
+  Facebook.getNameFromID(monster.fb_id, function (name) {
+    var html = ""
+    html+= "<div class='dataContainer'>"
+      html += "<div class='data'>"
+	html += "<h4>"+name+" - lvl "+monster.level+"</h4>"
+	html += getLifeBarHtml(monster)
+      html += "</div>"
     html += "</div>"
-  html += "</div>"
-
-  return html
+    cb(html)
+  })
 }
 
 function getLifeBarHtml(monster) {
