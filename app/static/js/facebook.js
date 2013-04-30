@@ -9,11 +9,15 @@
 // 	  // TODO: Handle error when the monster is not a friend of you
 // 	}
 //
-// To get someone's name by ID: getNameFromID(id, callback)
-//
 // Attributes:
 //   .id
 //   .name
+//
+// --------------
+//
+// To get someone's name by ID: getNameFromID(id, callback)
+//   Examples: getNameFromID(1063020932, function (name) { console.log(name) })  => "Sacha Bron"
+//             getNameFromID([1063020932, 4, 1236701567, 4], function (name) { console.log(name) })  => ["Sacha Bron", "Mark Zuckerberg", "Kewin Dousse", "Mark Zuckerberg"]
 //
 
 Facebook = {
@@ -74,15 +78,56 @@ Facebook = {
   },
   
   getNameFromID: function (id, cb) {
-    if((name = Facebook.namesFromID[id].name) !== undefined) {
-      cb(name); 
+    // id is an Array
+    if(Object.prototype.toString.call(id) === '[object Array]') {
+      var id_init = id
+      var names = []
+      var fql = false
+      
+      for(var i=0, len=id.length; i<len && !fql; i++) {
+	// Cached
+        if(Facebook.namesFromID[id[0]] !== undefined) {
+	  names.push(Facebook.namesFromID[id.shift()]);
+	}
+	// API
+	else {
+	  fql = true
+	  
+	  FB.api(
+	    {
+	      method: 'fql.query',
+	      query: 'SELECT uid, name FROM user WHERE uid in ('+id.toString()+')'
+	    },
+	    function(response) {
+	      for(var j=0, len=response.length; j<len; j++) {
+	        Facebook.namesFromID[response[j].uid] = response[j].name;
+	      }
+	      Facebook.getNameFromID(id_init, function (names) {
+		cb(names);
+	      })
+	    }
+	  );
+	}
+      }
+      if(!fql) {
+	cb(names)
+      }
     }
+    
+    // id is an int
     else {
-      FB.api('http://graph.facebook.com/'+id+'/?fields=name', function (res) {
-	var name = res.name;
-	Facebook.namesFromID[id] = name;
-	cb(name);
-      })
+      // Cached
+      if((name = Facebook.namesFromID[id]) !== undefined) {
+        cb(name);
+      }
+      // API
+      else {
+        FB.api('/'+id+'/?fields=name', function (res) {
+          var name = res.name;
+          Facebook.namesFromID[id] = name;
+          cb(name);
+        })
+      }
     }
   }
 }
