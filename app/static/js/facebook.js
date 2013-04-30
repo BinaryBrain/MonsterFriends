@@ -16,8 +16,10 @@
 // --------------
 //
 // To get someone's name by ID: getNameFromID(id, callback)
-//   Examples: getNameFromID(1063020932, function (name) { console.log(name) })  => "Sacha Bron"
-//             getNameFromID([1063020932, 4, 1236701567, 4], function (name) { console.log(name) })  => ["Sacha Bron", "Mark Zuckerberg", "Kewin Dousse", "Mark Zuckerberg"]
+//   Examples: getNameFromID(1063020932, function (name) { console.log(name) })
+//             => "Sacha Bron"
+//             getNameFromID([1063020932, 4, 1236701567, 4], function (name) { console.log(name) })
+//             => ["Sacha Bron", "Mark Zuckerberg", "Kewin Dousse", "Mark Zuckerberg"]
 //
 
 Facebook = {
