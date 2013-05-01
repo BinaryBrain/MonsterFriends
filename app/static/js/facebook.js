@@ -152,7 +152,7 @@ function go() {
     Facebook.userID = response.id
     Facebook.myname = response.first_name
     
-    $("#facebookconnect").html("Hi, "+Facebook.myname)
+    $("#facebookconnect").html('<div class="hi">Hi, '+Facebook.myname+'</div>')
     
     Facebook.onReady()
   })
