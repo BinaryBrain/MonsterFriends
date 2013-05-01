@@ -1,5 +1,6 @@
 Dialog = {
   id: "#dialog",
+  content: "#dialog .content",
   
   show: function () {
     $(Dialog.id).slideDown()
@@ -11,12 +12,12 @@ Dialog = {
   
   // plain text
   print: function (msg) {
-    $(Dialog.id).text(msg)
+    $(Dialog.content).text(msg)
   },
   
   // html
   html: function (html) {
-    $(Dialog.id).html(html)
+    $(Dialog.content).html(html)
   },
   
   Messages: {
