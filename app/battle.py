@@ -11,10 +11,12 @@ from gevent import monkey
 from sqlalchemy import or_, desc
 
 from models import User, Monster, Attak, db, Fight
+from models.JSONEncoder import ModelsEncoder
 
 from monsterfriends import app
 
 import logging
+
 logging.basicConfig(level=logging.DEBUG)
 
 monkey.patch_all()
@@ -255,7 +257,7 @@ class BattleNamespace(BaseNamespace):
             self.emit("error", "Hello has not been sent, I can't fetch your history :(")
             return True
         h = self.r.get_last_history(self.fbid)
-        self.emit("history", json.dumps(h))
+        self.emit("history", ModelsEncoder().encode(h))
         return True
 
     def on_get_monsters(self):
