@@ -1,7 +1,7 @@
 #vs {
   position: relative;
 
-  height: 70px;
+  height: 80px;
   
   border-bottom: 1px solid black;
 }
@@ -31,7 +31,7 @@
   width: 40px;
   height: 40px;
   
-  margin: 15px 10px;
+  margin: 20px 10px;
 }
 
 #vs #trainer0 img { 
@@ -43,7 +43,7 @@
 }
 
 #vs p {
-  margin-top: 25px;
+  margin-top: 30px;
 }
 
 #vs #trainer0 p {
@@ -56,9 +56,11 @@
 
 #vs h2 {
   text-align: center;
-  
+
   left: 0;
   right: 0;
+  
+  margin-top: 25px;
 }
 
 #battle {
@@ -69,7 +71,7 @@
 
 #battle .monsterContainer {
   width: 740px;
-  height: 129px;
+  height: 124px;
   
   padding: 30px;
   
@@ -77,8 +79,8 @@
 }
 
 #battle .monster img {
-  width: 129px;
-  height: 129px;
+  width: 124px;
+  height: 124px;
 }
 
 #battle #monsterContainer0 .monster {
@@ -97,46 +99,46 @@
 
 }
 
-#battle #monsterContainer0 .dataContainer .arrow {
-  display: inline-block;
-  border-right: 55px solid rgba(0,0,0,0);
-  border-bottom: 16px solid #334;
-  width: 0;
-  margin-top: 63px;
-  height: 0;
-  margin-left: -1px;
-}
-
 #battle #monsterContainer1 .dataContainer {
   float: right;
 }
 
-#battle #monsterContainer0 .dataContainer .arrow {
+#battle .arrow {
   display: inline-block;
-  border-left: 55px solid rgba(0,0,0,0);
+  border: 0;
   border-bottom: 16px solid #334;
   width: 0;
-  margin-top: 63px;
+  margin-top: 67px;
   height: 0;
+}
+
+#battle #monsterContainer0 .arrow {
+  border-right: 55px solid rgba(0,0,0,0);
   margin-left: -1px;
+}
+
+#battle #monsterContainer1 .arrow {
+  border-left: 55px solid rgba(0,0,0,0);
+  margin-left: 213px;
 }
 
 #battle #monsterContainer0 .data {
   float: left;
+  border-radius: 3px 3px 0 3px;
 }
 
 #battle #monsterContainer1 .data {
   float: right;
+  border-radius: 3px 3px 3px 0;
 }
 
 #battle .data {
   width: 300px;
-  height: 100 px;
   
   padding: 15px;
   
-  border-radius: 3px;
   border: 1px solid black;
+  border-bottom: 5px solid #334;
 }
 
 #battle .lifebar {

@@ -1,3 +1,7 @@
+$("#previousButton").on('click', function () {
+  View.show(Scene.MENU)
+})
+
 $(function () {
   // TODO: Load from server
   var trainers = [
@@ -47,7 +51,7 @@ function getBattleHtml(monsters, cb) {
   getStatusHtml(monsters[0], function (html0) {
     html+="<div id='monsterContainer"+0+"' class='monsterContainer'>"
       html+="<div class='monster'>"
-	html+= '<img src="http://graph.facebook.com/'+monsters[0].fb_id+'/picture?width=129&height=129">'
+	html+= '<img src="http://graph.facebook.com/'+monsters[0].fb_id+'/picture?width=124&height=124">'
       html+="</div>"
       html += html0
     html+="</div>"
@@ -55,7 +59,7 @@ function getBattleHtml(monsters, cb) {
     getStatusHtml(monsters[1], function (html1) {
       html+="<div id='monsterContainer"+1+"' class='monsterContainer'>"
 	html+="<div class='monster'>"
-	  html+= '<img src="http://graph.facebook.com/'+monsters[1].fb_id+'/picture?width=129&height=129">'
+	  html+= '<img src="http://graph.facebook.com/'+monsters[1].fb_id+'/picture?width=124&height=124">'
 	html+="</div>"
 	html += html1
       html+="</div>"
@@ -63,7 +67,7 @@ function getBattleHtml(monsters, cb) {
     })
   })
 }
-	
+
 function getStatusHtml(monster, cb) {
   Facebook.getNameFromID(monster.fb_id, function (name) {
     var html = ""
@@ -72,6 +76,7 @@ function getStatusHtml(monster, cb) {
 	html += "<h4>"+name+" - lvl "+monster.level+"</h4>"
 	html += getLifeBarHtml(monster)
       html += "</div>"
+      html += "<div class='arrow'></div>"
     html += "</div>"
     cb(html)
   })
@@ -83,10 +88,10 @@ function getLifeBarHtml(monster) {
   var color = 'rgb(148,240,59)' // green
 
   if(percent < 20 ) {
-	  color = 'rgb(255,72,59)' // red
+    color = 'rgb(255,72,59)' // red
   }
   else if (percent < 50) {
-	  color = 'rgb(255,200,59)' // yellow
+    color = 'rgb(255,200,59)' // yellow
   }
 
   html += '<div class="lifebar">'
