@@ -159,15 +159,6 @@ function go() {
 }
 
 $(function () {
-  // Load the FB SDK Asynchronously
-  (function(d){
-    var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-    if (d.getElementById(id)) {return;}
-    js = d.createElement('script'); js.id = id; js.async = true;
-    js.src = "//connect.facebook.net/en_US/all.js";
-    ref.parentNode.insertBefore(js, ref);
-  } (document));
-  
   window.fbAsyncInit = function() {
     FB.init({
       appId      : '286327544834291', // App ID
@@ -185,9 +176,19 @@ $(function () {
 	login()
       } else {
 	// not_logged_in
+	console.log("login")
 	login()
       }
     })
   }
+  
+  // Load the FB SDK Asynchronously
+  (function(d){
+    var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement('script'); js.id = id; js.async = true;
+    js.src = "//connect.facebook.net/en_US/all.js";
+    ref.parentNode.insertBefore(js, ref);
+  } (document));
 })
 
